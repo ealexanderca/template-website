@@ -9,7 +9,7 @@ carousels:
   - images:
     - image: /assets/images/tree.png
     - image: /assets/images/water1.png
-	- image: /assets/images/water2.png
+    - image: /assets/images/water2.png
 ---
 This page is an example of how to use the includes.
 ##images
