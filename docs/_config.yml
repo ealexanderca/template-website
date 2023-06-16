@@ -30,12 +30,12 @@ minima:
   skin: auto
   # socisl links automatically get shown at the bottom and a script creates auto redirects from the platform and from tag "https://example.com/git
   social_links:
-    - { platform: github,  user_url: "github.com", from: "git"}
-    - { platform: youtube, user_url: "youtube.com", from: "yt" }
-    - { platform: linkedin, user_url: "linkedin.com", from: "li" }
-    - { platform: strava, user_url: "strava.com", from: "st" }
-    - { platform: facebook, user_url: "facebook.com", from: "fb" }
-    - { platform: twitter, user_url: "twitter.com", from: "tw" }
+    - { platform: github,  user_url: "https://github.com", from: "git"}
+    - { platform: youtube, user_url: "https://youtube.com", from: "yt" }
+    - { platform: linkedin, user_url: "https://linkedin.com", from: "li" }
+    - { platform: strava, user_url: "https://strava.com", from: "st" }
+    - { platform: facebook, user_url: "https://facebook.com", from: "fb" }
+    - { platform: twitter, user_url: "https://twitter.com", from: "tw" }
 defaults:
   -
     scope:
