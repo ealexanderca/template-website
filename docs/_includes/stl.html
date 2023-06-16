@@ -1,0 +1,23 @@
+{% assign ori="bottom"%}
+
+{% if include.ori%}
+{% assign ori = include.ori %}
+{% endif %}
+
+{% assign height="500px"%}
+
+{% if include.height%}
+{% assign height = include.height %}
+{% endif %}
+
+{% if include.external %}
+  {% assign url = include.url %}
+{% else %}
+  {% capture url %}{{site.url}}{{include.url}}{% endcapture %}
+{% endif %}
+
+<!--- y is vertical, z is forward --->
+<center>
+<iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&bgcolor=transparent&clean=yes&noborder=yes&url={{ url }}&orientation={{ori}}" style="border:0;margin:0;width:100%;height:{{height}};">
+</iframe>
+</center>

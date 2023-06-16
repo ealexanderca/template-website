@@ -1,0 +1,1 @@
+got to https://realfavicongenerator.net/ to generate icons and copy them into this folder

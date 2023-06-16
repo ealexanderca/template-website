@@ -1,0 +1,57 @@
+{% assign id="pdf"%}
+{% if include.id%}
+{% assign id = include.id %}
+{% endif %}
+
+{% if include.external %}
+  {% assign url = include.url %}
+{% else %}
+  {% capture url %}{{site.url}}{{include.url}}{% endcapture %}
+{% endif %}
+<!-- This script reloads the embeded PDF if nothing loads -->
+<script>
+
+function myFunction{{id}}(){
+  console.log("checking {{id}} contentDocument load status");
+  iframeEle{{id}} = document.getElementById('{{id}}');
+  loadingEle{{id}} = document.getElementById('loading{{id}}');
+  try{
+    if(iframeEle{{id}}.contentDocument != null) {
+    iframeEle{{id}}.src=iframeEle{{id}}.src;
+    loadingEle{{id}}.style.display = 'flex'
+    console.log('{{id}} load failed, refreshing');
+    }else{
+    console.log('{{id}} loaded normal');
+    clearInterval(myInt{{id}});
+    loadingEle{{id}}.style.display = 'none';
+    iframeEle{{id}}.style.opacity = 1;
+    }
+  }
+  catch(err){
+    console.log('{{id}} loaded error');
+    clearInterval(myInt{{id}});
+    loadingEle{{id}}.style.display = 'none';
+    iframeEle{{id}}.style.opacity = 1;
+  }
+}
+
+myInt{{id}} = setInterval(myFunction{{id}},400)
+
+</script>
+
+<div class="container" style="position: relative;">
+    <!-- The loading indicator -->
+    <div class="loading" id="loading{{id}}" style="left: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: none;
+    justify-content: center;
+    z-index: 2"><h1 class="post-title">If not loading download <a href="{{url}}">here</a></h1></div>
+
+    <!-- The iframe -->
+    <iframe id="{{id}}" src="https://drive.google.com/viewer?url={{url}}&embedded=true" width="100%" height="950px" frameBorder="0" style="opacity: 0; z-index: 1"></iframe>
+</div>
+
